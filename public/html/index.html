@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VDOM Test</title>
+</head>
+
+<body>
+    <div id="ROOT">
+        <div id='main-container'>
+            <div id="app-header" class="app-header container">
+                <div id="app-title" class="title"></div>
+                <button id="button-1" class="menu-button">Button 1</button>
+            </div>
+            <div id="app-body" class="app-body container">
+                <p id='welcome' class="welcome">Welcome to my test environment!</p>
+                <ul id="ul1">
+                    <li id="li1">List Item 1</li>
+                    <li id="li2">List Item 2</li>
+                    <li id="li3">List Item 3</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script data-main="../js/requirejs-config.js" src="../../node_modules/requirejs/require.js"></script>
+    <script>
+        console.log('Running scripts');
+        require(['../js/requirejs-config', function() {
+            console.log("requiring RequireJS");
+            require(['../js/index']);
+        }]);
+    </script>
+</body>
+
+</html>
+
+<!-- HTML Sample Code
+<div id='main-container'>
+    <div id="app-header" class="app-header container">
+        <div id="app-title" class="title"></div>
+        <button id="button-1" class="menu-button">Button 1</button>
+    </div>
+    <div id="app-body" class="app-body container">
+        <p id='welcome' class="welcome">Welcome to my test environment!</p>
+        <ul id="ul1">
+            <li id="li1">List Item 1</li>
+            <li id="li2">List Item 2</li>
+            <li id="li3">List Item 3</li>
+        </ul>
+    </div>
+</div>
+ -->

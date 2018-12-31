@@ -8,16 +8,16 @@
             // Directory paths
             components: 'lib/components',
             utils: 'lib/utils',
-            vdomcore: 'lib/vdom-core',
+            vdom: 'lib/vdom',
             test: 'lib/test',
             // File paths
             index: 'index',
             nodeutils: 'lib/utils/node-utils',
             austinutils: 'lib/utils/austin-utils',
-            // VDOM-Core
-            VDOMObject: 'lib/vdom-core/vdom-object',
-            updateVDOM: 'lib/vdom-core/update-vdom',
-            VDOMComponent: 'lib/vdom-core/vdom-component',
+            // VDOM
+            VDOMObject: 'lib/vdom/vdom-object',
+            updateVDOM: 'lib/vdom/update-vdom',
+            VDOMComponent: 'lib/vdom/vdom-component',
         }
     });
 

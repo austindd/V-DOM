@@ -1,12 +1,11 @@
 
 // =========================  Virtual DOM Component Class Prototype  ========================= 
 
-define(['./update-vdom'], (updateVDOM) => {
+define(['./vdom-core'], (VDOMCore) => {
 
     class VDOMComponent {
         constructor(id, props = {}, state = {}) {
-            this.id = id;
-            if (this.id === null || this.id === undefined) { this.id = this.createUUID() };
+            this.id = id ? id : this.createUUID();
             this.props = props;
             this.state = state;
             this.prevState = {};
@@ -24,17 +23,22 @@ define(['./update-vdom'], (updateVDOM) => {
         // Not sure if this is the right set of functions/args..
         // Takes a string of HTML code (unsanitized), calls the global update DOM function,
         // which returns a callback, which should return the new component
-        render(htmlString) {
+        render(h = null) {
             let self = this;
-            let cbfn = (target) => {
-                // do something with targetDOMNode? ...
-                let componentHTML = String(`<div id="${this.id}">${htmlString}</div>`);
-                console.log('Target Node: ', target);
-                console.log('Target Node Parent: ', target.parentNodes)
-                console.log(componentHTML);
-                return {htmlContent: componentHTML};
-            };
-            updateVDOM(self, cbfn);
+            VDOMCore(self, callbackToComponent = (cbToVDOMCore) => {
+                h.render()
+
+            });
+
+
+            // let cbfn = (componentObj) => {
+            //     // do something with targetDOMNode? ...
+            //     let componentHTML = String(`<div id="${this.id}">${component}</div>`);
+            //     console.log('Target Node: ', target);
+            //     console.log(componentHTML);
+            //     return {htmlContent: componentHTML};
+            // };
+            
         }
 
         createUUID() {
